@@ -60,7 +60,7 @@ const CreateShortUrl = async function (req, res) {
     body.shortUrl = shortUrl;
     body.urlCode = urlCode;
 
-    await urlModel.create(url);
+    await urlModel.create(body);
 
     let ShowUrl = await urlModel.findOne({ longUrl: body.longUrl }).select({ longUrl: 1, shortUrl: 1, urlCode: 1, _id: 0 });
 
